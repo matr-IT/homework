@@ -1,8 +1,10 @@
-from masks import get_mask_card_number
-from masks import get_mask_account
+from datetime import datetime
+from typing import Any
+
+from masks import get_mask_account, get_mask_card_number
 
 
-def mask_account_card(type_and_number: str) -> str:
+def mask_account_card(type_and_number: str) -> Any:
     """gets type and number and masks number"""
     digits_of_number = ""
     type_of_number = ""
@@ -23,13 +25,7 @@ def mask_account_card(type_and_number: str) -> str:
     return full_masked
 
 
-print(mask_account_card("Maestro 1596837868705199"))
-print(mask_account_card("Счет 64686473678894779589"))
-print(mask_account_card("MasterCard 7158300734726758"))
-print(mask_account_card("Счет 35383033474447895560"))
-print(mask_account_card("Visa Classic 6831982476737658"))
-print(mask_account_card("Visa Platinum 8990922113665229"))
-print(mask_account_card("Visa Gold 5999414228426353"))
-print(mask_account_card("Счет 73654108430135874305"))
-
-def get_date()
+def get_date(date_str: str) -> str:
+    """function changes the date format from ISO 8601 format to DD.MM.YYYY"""
+    dt = datetime.fromisoformat(date_str.replace("Z", ""))
+    return dt.strftime("%d.%m.%Y")
