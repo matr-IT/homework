@@ -7,10 +7,10 @@ def filter_by_state(list_of_dicts: list[dict], key: str = "EXECUTED") -> list[di
     return new_list
 
 
-def sort_by_date(list_of_dicts: list[dict], ascending: bool = True) -> list[dict]:
+def sort_by_date(list_of_dicts: list[dict], descending: bool = True) -> list[dict]:
     """sorting by date"""
-    if ascending:
-        list_of_dicts.sort(key=lambda x: x["date"])
-    if not ascending:
+    if descending:
         list_of_dicts.sort(key=lambda x: x["date"], reverse=True)
+    if not descending:
+        list_of_dicts.sort(key=lambda x: x["date"])
     return list_of_dicts
