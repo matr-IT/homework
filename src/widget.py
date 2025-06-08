@@ -34,5 +34,8 @@ def mask_account_card(type_and_number: str) -> Any:
 
 def get_date(date_str: str) -> str:
     """function changes the date format from ISO 8601 format to DD.MM.YYYY"""
-    dt = datetime.fromisoformat(date_str.replace("Z", ""))
-    return dt.strftime("%d.%m.%Y")
+    if date_str == "":
+        return "Дата не введена, введите дату"
+    else:
+        dt = datetime.fromisoformat(date_str.replace("Z", ""))
+        return dt.strftime("%d.%m.%Y")

@@ -82,5 +82,11 @@ def account_card_count_short() -> str:
 def account_card_count_long() -> str:
     return "Счет 73654108430123135874305"
 
+@pytest.fixture
+def start_format_date():
+    return "2024-03-11T02:26:18.671407"
 
+@pytest.fixture
+def empty_date():
+    return ""
 # Фикстурты для модуля processing.py

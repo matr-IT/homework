@@ -2,6 +2,7 @@ import pytest
 
 from src.widget import mask_account_card
 from tests.conftest import account_card_1, account_card_count_1
+from widget import get_date
 
 
 def test_mask_account_card_check(account_card_1: str, account_card_count_1: str) -> str:
@@ -29,3 +30,6 @@ def test_mask_account_incorrect_data(
     assert mask_account_card(account_card_long) == "Неверное количество цифр в номере карты"
     assert mask_account_card(account_card_count_short) == "Неверное количество цифр в номере счета"
     assert mask_account_card(account_card_count_long) == "Неверное количество цифр в номере счета"
+
+def test_get_date(start_format_date):
+    assert get_date(start_format_date) == "11.03.2024"
