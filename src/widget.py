@@ -17,7 +17,6 @@ def mask_account_card(type_and_number: str) -> Any:
         if x.isalpha() or x.isspace():
             type_of_number += x
 
-
     if type_of_number == "Счет ":
         if len(digits_of_number) == 20:
             masked_number = get_mask_account(digits_of_number)
