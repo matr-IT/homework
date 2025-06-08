@@ -21,5 +21,21 @@ def card_number_empty():
     return ""
 
 @pytest.fixture
-def account_number():
+def account_number_1():
     return 73654108430135874305
+
+@pytest.fixture
+def account_number_2():
+    return 73654108430135875517
+
+@pytest.fixture
+def account_number_short():
+    return 736541084301358743
+
+@pytest.fixture
+def account_number_long():
+    return 73654108430135874305123
+
+@pytest.fixture
+def account_number_empty():
+    return ""
