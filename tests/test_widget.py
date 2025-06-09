@@ -1,5 +1,6 @@
 import pytest
 
+from conftest import start_format_date_2, non_standard_date_1
 from src.widget import mask_account_card
 from tests.conftest import account_card_1, account_card_count_1
 from widget import get_date
@@ -31,5 +32,9 @@ def test_mask_account_incorrect_data(
     assert mask_account_card(account_card_count_short) == "Неверное количество цифр в номере счета"
     assert mask_account_card(account_card_count_long) == "Неверное количество цифр в номере счета"
 
-def test_get_date(start_format_date):
-    assert get_date(start_format_date) == "11.03.2024"
+def test_get_date(start_format_date_1, start_format_date_2, empty_date, non_standard_date_1, non_standard_date_2):
+    assert get_date(start_format_date_1) == "11.03.2024"
+    assert get_date(start_format_date_2) == "23.10.2025"
+    assert get_date(empty_date) == "Дата не введена, введите дату"
+    assert get_date(non_standard_date_1) == "05.10.2023"
+    assert get_date(non_standard_date_2) == "05.10.2023"
