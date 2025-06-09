@@ -84,33 +84,33 @@ def account_card_count_long() -> str:
 
 
 @pytest.fixture
-def start_format_date_1():
+def start_format_date_1() -> str:
     return "2024-03-11T02:26:18.671407"
 
 
 @pytest.fixture
-def start_format_date_2():
+def start_format_date_2() -> str:
     return "2025-10-23T02:26:18.671407"
 
 
 @pytest.fixture
-def empty_date():
+def empty_date() -> str:
     return ""
 
 
 @pytest.fixture
-def non_standard_date_1():
+def non_standard_date_1() -> str:
     return "2023-10-05"
 
 
 @pytest.fixture
-def non_standard_date_2():
+def non_standard_date_2() -> str:
     return "2023-10-05T12:30:45+03:00"
 
 
 # Фикстурты для модуля processing.py
 @pytest.fixture
-def list_of_dicts_1():
+def list_of_dicts_1() -> list[dict]:
     return [
         {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
         {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
@@ -120,7 +120,7 @@ def list_of_dicts_1():
 
 
 @pytest.fixture
-def list_of_dicts_2():
+def list_of_dicts_2() -> list[dict]:
     return [
         {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
         {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
@@ -130,7 +130,7 @@ def list_of_dicts_2():
 
 
 @pytest.fixture
-def list_of_dicts_3():
+def list_of_dicts_3() -> list[dict]:
     return [
         {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
         {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
