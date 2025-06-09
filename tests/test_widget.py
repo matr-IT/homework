@@ -1,5 +1,4 @@
 import pytest
-import typing
 
 from src.widget import get_date, mask_account_card
 
@@ -24,14 +23,20 @@ def test_mask_account_card_diff_types(some_account: str, mask_result: str) -> No
 
 def test_mask_account_incorrect_data(
     account_card_short: str, account_card_long: str, account_card_count_short: str, account_card_count_long: str
-)->None:
+) -> None:
     assert mask_account_card(account_card_short) == "Неверное количество цифр в номере карты"
     assert mask_account_card(account_card_long) == "Неверное количество цифр в номере карты"
     assert mask_account_card(account_card_count_short) == "Неверное количество цифр в номере счета"
     assert mask_account_card(account_card_count_long) == "Неверное количество цифр в номере счета"
 
 
-def test_get_date(start_format_date_1:str, start_format_date_2:str, empty_date:str, non_standard_date_1:str, non_standard_date_2:str)->None:
+def test_get_date(
+    start_format_date_1: str,
+    start_format_date_2: str,
+    empty_date: str,
+    non_standard_date_1: str,
+    non_standard_date_2: str,
+) -> None:
     assert get_date(start_format_date_1) == "11.03.2024"
     assert get_date(start_format_date_2) == "23.10.2025"
     assert get_date(empty_date) == "Дата не введена, введите дату"
