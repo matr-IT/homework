@@ -1,8 +1,7 @@
 from datetime import datetime
 from typing import Any
 
-import masks
-from masks import get_mask_account, get_mask_card_number
+from src.masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(type_and_number: str) -> Any:
@@ -24,7 +23,7 @@ def mask_account_card(type_and_number: str) -> Any:
         else:
             return "Неверное количество цифр в номере счета"
     else:
-        if len(digits_of_number) == 20:
+        if len(digits_of_number) == 16:
             masked_number = get_mask_card_number(digits_of_number)
             full_masked = type_of_number + masked_number
         else:

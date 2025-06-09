@@ -1,5 +1,3 @@
-from typing import List
-
 def filter_by_state(list_of_dicts: list[dict], key: str = "EXECUTED") -> str | list[dict]:
     """sorting list by state"""
     new_list = []
