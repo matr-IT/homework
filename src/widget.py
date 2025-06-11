@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Any
 
-from masks import get_mask_account, get_mask_card_number
+from src.masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(type_and_number: str) -> Any:
@@ -17,15 +17,24 @@ def mask_account_card(type_and_number: str) -> Any:
             type_of_number += x
 
     if type_of_number == "Счет ":
-        masked_number = get_mask_account(digits_of_number)
-        full_masked = type_of_number + masked_number
+        if len(digits_of_number) == 20:
+            masked_number = get_mask_account(digits_of_number)
+            full_masked = type_of_number + masked_number
+        else:
+            return "Неверное количество цифр в номере счета"
     else:
-        masked_number = get_mask_card_number(digits_of_number)
-        full_masked = type_of_number + masked_number
+        if len(digits_of_number) == 16:
+            masked_number = get_mask_card_number(digits_of_number)
+            full_masked = type_of_number + masked_number
+        else:
+            return "Неверное количество цифр в номере карты"
     return full_masked
 
 
 def get_date(date_str: str) -> str:
     """function changes the date format from ISO 8601 format to DD.MM.YYYY"""
-    dt = datetime.fromisoformat(date_str.replace("Z", ""))
-    return dt.strftime("%d.%m.%Y")
+    if date_str == "":
+        return "Дата не введена, введите дату"
+    else:
+        dt = datetime.fromisoformat(date_str.replace("Z", ""))
+        return dt.strftime("%d.%m.%Y")
