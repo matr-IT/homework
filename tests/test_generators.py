@@ -14,6 +14,12 @@ def test_card_number_generator() -> None:
         next(_generator)
 
 
+@pytest.mark.parametrize("start, stop, exp", [(1, 3, "0000 0000 0000 0001"), (5, 10, "0000 0000 0000 0005")])
+def test_card_number_generator_param(start, stop, exp):
+    assert next(card_number_generator(start, stop)) == exp
+    assert next(card_number_generator(start, stop)) == exp
+
+
 def test_filter_by_currency(different_operations: list[dict]) -> None:
     _generator = filter_by_currency(different_operations, "USD")
     assert next(_generator) == {
@@ -51,6 +57,56 @@ def test_filter_by_currency_empty_str(empty_str_operations: str) -> None:
         next(_generator)
 
 
+@pytest.mark.parametrize(
+    "operations, currency, exp",
+    [
+        (
+            [
+                {
+                    "id": 939719570,
+                    "state": "EXECUTED",
+                    "date": "2018-06-30T02:08:58.425572",
+                    "operationAmount": {"amount": "9824.07", "currency": {"name": "USD", "code": "USD"}},
+                    "description": "Перевод организации",
+                    "from": "Счет 75106830613657916952",
+                    "to": "Счет 11776614605963066702",
+                },
+                {
+                    "id": 142264268,
+                    "state": "EXECUTED",
+                    "date": "2019-04-04T23:20:05.206878",
+                    "operationAmount": {"amount": "79114.93", "currency": {"name": "USD", "code": "USD"}},
+                    "description": "Перевод со счета на счет",
+                    "from": "Счет 19708645243227258542",
+                    "to": "Счет 75651667383060284188",
+                },
+                {
+                    "id": 142264268,
+                    "state": "EXECUTED",
+                    "date": "2019-04-04T23:20:05.206878",
+                    "operationAmount": {"amount": "79114.93", "currency": {"name": "RUB", "code": "RUB"}},
+                    "description": "Перевод с карты на карту",
+                    "from": "Счет 19708645243227258542",
+                    "to": "Счет 75651667383060284188",
+                },
+            ],
+            "USD",
+            {
+                "id": 939719570,
+                "state": "EXECUTED",
+                "date": "2018-06-30T02:08:58.425572",
+                "operationAmount": {"amount": "9824.07", "currency": {"name": "USD", "code": "USD"}},
+                "description": "Перевод организации",
+                "from": "Счет 75106830613657916952",
+                "to": "Счет 11776614605963066702",
+            },
+        )
+    ],
+)
+def test_filter_by_currency_param(operations, currency, exp):
+    assert next(filter_by_currency(operations, currency)) == exp
+
+
 def test_filter_by_currency_empty_list(empty_list_operations: list) -> None:
     _generator = filter_by_currency(empty_list_operations, "USD")
     assert next(_generator) == "Операции не обнаружены"
@@ -79,3 +135,45 @@ def test_transaction_descriptions_empty_list(empty_list_operations: list) -> Non
     assert next(_generator) == "Операции не обнаружены"
     with pytest.raises(StopIteration):
         next(_generator)
+
+
+@pytest.mark.parametrize(
+    "operations, exp",
+    [
+        (
+            [
+                {
+                    "id": 939719570,
+                    "state": "EXECUTED",
+                    "date": "2018-06-30T02:08:58.425572",
+                    "operationAmount": {"amount": "9824.07", "currency": {"name": "USD", "code": "USD"}},
+                    "description": "Перевод организации",
+                    "from": "Счет 75106830613657916952",
+                    "to": "Счет 11776614605963066702",
+                },
+                {
+                    "id": 142264268,
+                    "state": "EXECUTED",
+                    "date": "2019-04-04T23:20:05.206878",
+                    "operationAmount": {"amount": "79114.93", "currency": {"name": "USD", "code": "USD"}},
+                    "description": "Перевод со счета на счет",
+                    "from": "Счет 19708645243227258542",
+                    "to": "Счет 75651667383060284188",
+                },
+                {
+                    "id": 142264268,
+                    "state": "EXECUTED",
+                    "date": "2019-04-04T23:20:05.206878",
+                    "operationAmount": {"amount": "79114.93", "currency": {"name": "RUB", "code": "RUB"}},
+                    "description": "Перевод с карты на карту",
+                    "from": "Счет 19708645243227258542",
+                    "to": "Счет 75651667383060284188",
+                },
+            ],
+            "Перевод организации",
+        )
+    ],
+)
+def test_transaction_descriptions_param(operations, exp):
+    y = next(transaction_descriptions(operations))
+    assert y == exp
