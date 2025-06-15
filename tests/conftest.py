@@ -141,7 +141,6 @@ def list_of_dicts_3() -> list[dict]:
 
 # Фикстуры для generators.py
 
-
 @pytest.fixture
 def different_operations() -> list[dict]:
     return [
@@ -183,3 +182,4 @@ def empty_str_operations() -> str:
 @pytest.fixture
 def empty_list_operations() -> list:
     return []
+

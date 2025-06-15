@@ -15,10 +15,12 @@ def filter_by_currency(operations: list[dict], currency: str) -> Generator:
 
 def transaction_descriptions(operations: list[dict]) -> Generator:
     """function returns a description of each operation one-by-one"""
-    for operation in operations:
-        if operation["description"] != 0:
-            yield operation["description"]
-
+    if operations:
+        for operation in operations:
+            if operation["description"] != 0:
+                yield operation["description"]
+    else:
+        yield "Операции не обнаружены"
 
 def card_number_generator(start: int, stop: int) -> Generator:
     """generates 16-digits card number"""
