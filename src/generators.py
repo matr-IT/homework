@@ -22,11 +22,12 @@ def transaction_descriptions(operations: list[dict]) -> Generator:
     else:
         yield "Операции не обнаружены"
 
+
 def card_number_generator(start: int, stop: int) -> Generator:
     """generates 16-digits card number"""
     for i in range(start, stop + 1):
         card_number = []
         num = str(i).zfill(16)
         for j in range(0, 16, 4):
-            card_number.append(num[j : j + 4])
+            card_number.append(num[j: j + 4])
         yield " ".join(card_number)

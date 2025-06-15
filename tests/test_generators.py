@@ -66,11 +66,13 @@ def test_transaction_descriptions(different_operations: list[dict]) -> None:
     with pytest.raises(StopIteration):
         next(_generator)
 
+
 def test_transaction_descriptions_empty_str(empty_str_operations: str) -> None:
     _generator = transaction_descriptions(empty_str_operations)
     assert next(_generator) == "Операции не обнаружены"
     with pytest.raises(StopIteration):
         next(_generator)
+
 
 def test_transaction_descriptions_empty_list(empty_list_operations: list) -> None:
     _generator = transaction_descriptions(empty_list_operations)
