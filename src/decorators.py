@@ -7,10 +7,10 @@ def log(filename=None):
     def decorator(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
-
+            func_name = func.__name__
             try:
                 result = func(*args, **kwargs)
-                success_message = f"{func} ok"
+                success_message = f"{func.__name__} ok"
 
                 if filename:
                     with open(filename, "a") as f:
@@ -21,7 +21,7 @@ def log(filename=None):
                 return result
 
             except Exception as e:
-                error_message = f"{func} error: {type(e).__name__}. Inputs: {args}, {kwargs}"
+                error_message = f"{func.__name__} error: {type(e).__name__}. Inputs: {args}, {kwargs}"
 
                 if filename:
                     with open(filename, "a") as f:

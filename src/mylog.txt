@@ -1,0 +1,12 @@
+<function my_function at 0x102644cc0> ok
+<function my_function at 0x100ed0cc0> ok
+<function my_function at 0x102fb8cc0> error: TypeError. Inputs: (1, '2'), {}
+<function my_function at 0x1029e0cc0> error: TypeError. Inputs: (1, '2'), {}
+<function my_function at 0x1042cccc0> error: TypeError. Inputs: (1, '2'), {}
+<function my_function at 0x1047b0cc0> error: TypeError. Inputs: (1, '2'), {}
+<function my_function at 0x1044c0cc0> error: TypeError. Inputs: (1, '2'), {}
+<function my_function at 0x10462ccc0> error: TypeError. Inputs: (1, '2'), {}
+<function my_function at 0x102e04cc0> error: TypeError. Inputs: (1, '2'), {}
+<function my_function at 0x104a98cc0> ok
+<function my_function at 0x102d5ccc0> error: TypeError. Inputs: (1, '2'), {}
+<function my_function at 0x1049dccc0> error: TypeError. Inputs: (1, '2'), {}

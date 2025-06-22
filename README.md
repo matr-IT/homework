@@ -207,6 +207,11 @@ pytest tests/test_widget.py
 # Запуск с покрытием кода
 pytest --cov=src --cov-report=term-missing
 ```
+
+## Декораторы для функций
+
+1. 
+
 ### Структура тестов
 
 Модульные тесты: Находятся в директории tests/
