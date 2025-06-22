@@ -1,5 +1,6 @@
 from typing import Generator
 
+
 def filter_by_currency(operations: list[dict], currency: str) -> Generator:
     """function filters operations by its currency"""
     if operations:
@@ -28,5 +29,5 @@ def card_number_generator(start: int, stop: int) -> Generator:
         card_number = []
         num = str(i).zfill(16)
         for j in range(0, 16, 4):
-            card_number.append(num[j: j + 4])
+            card_number.append(num[j : j + 4])
         yield " ".join(card_number)
