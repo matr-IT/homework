@@ -1,6 +1,5 @@
 from typing import Generator
 
-
 def filter_by_currency(operations: list[dict], currency: str) -> Generator:
     """function filters operations by its currency"""
     if operations:
