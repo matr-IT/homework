@@ -1,5 +1,3 @@
-from typing import Generator
-
 import pytest
 
 from src.decorators import log
