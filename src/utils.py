@@ -3,6 +3,7 @@ from json import JSONDecodeError
 
 
 def open_json(path: str) -> list:
+    """function converts json-files to python dicts"""
     with open(path, "r", encoding="utf-8") as f:
         try:
             return json.load(f)

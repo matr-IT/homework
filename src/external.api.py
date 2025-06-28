@@ -7,6 +7,7 @@ load_dotenv()
 
 
 def transaction_amount(transaction):
+    """functions gets value of transaction converted into RUB"""
     tran_amount = transaction["operationAmount"]["amount"]
     tran_amount_code = transaction["operationAmount"]["currency"]["code"]
     if tran_amount_code == "RUB":
