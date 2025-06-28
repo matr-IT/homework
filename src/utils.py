@@ -2,7 +2,7 @@ import json
 from json import JSONDecodeError
 
 
-def open_json (path: str) -> list:
+def open_json(path: str) -> list:
     with open(path, "r", encoding="utf-8") as f:
         try:
             return json.load(f)
@@ -10,4 +10,3 @@ def open_json (path: str) -> list:
             return []
         except Exception:
             return []
-
