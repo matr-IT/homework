@@ -7,6 +7,8 @@ def open_json(path: str) -> list:
     with open(path, "r", encoding="utf-8") as f:
         try:
             return json.load(f)
+        except FileNotFoundError:
+            return []
         except JSONDecodeError:
             return []
         except Exception:

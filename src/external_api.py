@@ -18,10 +18,5 @@ def transaction_amount(transaction):
             headers = {"apikey": os.getenv("API_KEY_EXCHANGE")}
 
             response = requests.get(url, headers=headers)
-            return response.json()["result"]
+            return float(response.json()["result"])
 
-print(transaction_amount({"operationAmount": {
-      "amount": "71771.90",
-      "currency": {
-        "name": "USD",
-        "code": "USD"}}}))
