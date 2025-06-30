@@ -13,3 +13,5 @@ def open_json(path: str) -> list:
             return []
         except Exception:
             return []
+
+print(open_json("/Users/rybin/PycharmProjects/homework/data/operations.json"))
