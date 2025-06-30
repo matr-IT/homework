@@ -2,7 +2,7 @@ import pytest
 from unittest.mock import patch, MagicMock
 import os
 
-from external_api import transaction_amount
+from src.external_api import transaction_amount
 
 
 def test_rub_transaction():
@@ -19,8 +19,8 @@ def test_rub_transaction():
     assert result == "1000.00"
 
 
-@patch("external_api.requests.get")
-@patch("external_api.os.getenv")
+@patch("src.external_api.requests.get")
+@patch("src.external_api.os.getenv")
 def test_eur_transaction(mock_getenv, mock_requests_get):
     """Test for transaction in RUB"""
     mock_getenv.return_value = "test_api_key"
