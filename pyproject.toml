@@ -9,6 +9,10 @@ packages = [{include = "homework_9"}]
 [tool.poetry.dependencies]
 python = "^3.13"
 pytest = "^8.4.0"
+requests = "^2.32.4"
+python-dotenv = "^1.1.1"
+dotenv = "^0.9.9"
+load-dotenv = "^0.1.0"
 
 
 [tool.poetry.group.lint.dependencies]
