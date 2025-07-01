@@ -11,7 +11,7 @@ LOG_DIR.mkdir(exist_ok=True, parents=True)
 
 logging.basicConfig(filemode='w')
 logger = logging.getLogger('utils')
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 file_handler = logging.FileHandler(LOG_FILE, encoding='utf-8')
 file_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s: %(message)s')
 file_handler.setFormatter(file_formatter)
