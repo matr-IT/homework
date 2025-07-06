@@ -183,3 +183,13 @@ def empty_str_operations() -> str:
 @pytest.fixture
 def empty_list_operations() -> list:
     return []
+
+
+#фикстура для test_read_csv_excel
+
+@pytest.fixture
+def test_data_read():
+    return [
+        {"id": 1, "name": "Alice", "value": 100},
+        {"id": 2, "name": "Bob", "value": 200}
+    ]

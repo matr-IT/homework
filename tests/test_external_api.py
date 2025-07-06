@@ -1,18 +1,14 @@
-import pytest
-from unittest.mock import patch, MagicMock
 import os
+from unittest.mock import MagicMock, patch
+
+import pytest
 
 from src.external_api import transaction_amount
 
 
 def test_rub_transaction():
     """Test for transaction in RUB"""
-    transaction = {
-        "operationAmount": {
-            "amount": "1000.00",
-            "currency": {"code": "RUB"}
-        }
-    }
+    transaction = {"operationAmount": {"amount": "1000.00", "currency": {"code": "RUB"}}}
 
     result = transaction_amount(transaction)
 
@@ -28,12 +24,7 @@ def test_eur_transaction(mock_getenv, mock_requests_get):
     mock_response.json.return_value = {"result": 95.50}
     mock_requests_get.return_value = mock_response
 
-    transaction = {
-        "operationAmount": {
-            "amount": "1.00",
-            "currency": {"code": "EUR"}
-        }
-    }
+    transaction = {"operationAmount": {"amount": "1.00", "currency": {"code": "EUR"}}}
 
     result = transaction_amount(transaction)
 
@@ -41,5 +32,5 @@ def test_eur_transaction(mock_getenv, mock_requests_get):
     mock_getenv.assert_called_once_with("API_KEY_EXCHANGE")
     mock_requests_get.assert_called_once_with(
         "https://api.apilayer.com/exchangerates_data/convert?to=RUB&from=EUR&amount=1.00",
-        headers={"apikey": "test_api_key"}
+        headers={"apikey": "test_api_key"},
     )

@@ -19,4 +19,3 @@ def transaction_amount(transaction):
 
             response = requests.get(url, headers=headers)
             return float(response.json()["result"])
-

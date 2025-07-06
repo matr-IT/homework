@@ -1,6 +1,7 @@
-import pytest
-from unittest.mock import patch, mock_open
 from json import JSONDecodeError
+from unittest.mock import mock_open, patch
+
+import pytest
 
 from src.utils import open_json
 
