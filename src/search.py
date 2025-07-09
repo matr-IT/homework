@@ -1,4 +1,6 @@
 import re
+from collections import Counter
+
 
 
 def process_bank_search(data: list[dict], search: str) -> list[dict]:
@@ -18,3 +20,17 @@ def process_bank_search(data: list[dict], search: str) -> list[dict]:
             result.append(operation)
 
     return result
+
+
+def process_bank_operations(data: list[dict], categories: list[str]) -> dict[str, int]:
+    """Counts amount of operations in each category by their description"""
+
+    counter = Counter()
+    for operation in data:
+        description = operation.get("description", "")
+        for category in categories:
+            pattern = re.compile(re.escape(category), re.IGNORECASE)
+            if pattern.search(description):
+                counter[category] += 1
+
+    return dict(counter)
