@@ -34,3 +34,4 @@ def process_bank_operations(data: list[dict], categories: list[str]) -> dict[str
                 counter[category] += 1
 
     return dict(counter)
+
