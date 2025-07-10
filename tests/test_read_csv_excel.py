@@ -1,6 +1,7 @@
-import pytest
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
+
 import pandas as pd
+import pytest
 
 from src.read_csv_excel import read_csv, read_excel
 

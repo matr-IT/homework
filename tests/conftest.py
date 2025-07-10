@@ -187,14 +187,14 @@ def empty_list_operations() -> list:
 
 # фикстура для test_read_csv_excel
 
+
 @pytest.fixture
 def test_data_read():
-    return [
-        {"id": 1, "name": "Alice", "value": 100},
-        {"id": 2, "name": "Bob", "value": 200}
-    ]
+    return [{"id": 1, "name": "Alice", "value": 100}, {"id": 2, "name": "Bob", "value": 200}]
+
 
 # фикстура для функций модуля search
+
 
 @pytest.fixture
 def sample_operations():
@@ -205,5 +205,5 @@ def sample_operations():
         {"id": 4, "description": "Tinkoff credit card"},
         {"id": 5},  # Операция без описания
         {"id": 6, "description": "Cash deposit to Sberbank"},
-        {"id": 7, "description": "Special characters: .*+?^$()[]{}|\\"}
+        {"id": 7, "description": "Special characters: .*+?^$()[]{}|\\"},
     ]

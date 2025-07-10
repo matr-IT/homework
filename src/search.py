@@ -2,7 +2,6 @@ import re
 from collections import Counter
 
 
-
 def process_bank_search(data: list[dict], search: str) -> list[dict]:
     """Filters operations by keyword from their descriptions"""
     if not search:
@@ -34,4 +33,3 @@ def process_bank_operations(data: list[dict], categories: list[str]) -> dict[str
                 counter[category] += 1
 
     return dict(counter)
-
