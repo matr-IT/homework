@@ -20,9 +20,9 @@ def get_mask_card_number(card_number: int) -> str:
     """function gets a card number returns a card number
     with divided in groups by four digits and with masked digits from 7 to 12"""
     str_card_number = str(card_number)
-    logger.info(f"Проверяем, введен ли номер карты")
+    logger.info("Проверяем, введен ли номер карты")
     if str_card_number != "":
-        logger.info(f"Проверяем длину номера карты")
+        logger.info("Проверяем длину номера карты")
         if len(str_card_number) == 16:
             logger.info(f"Маскируем карту {card_number}")
             mask_card_number = (
@@ -41,7 +41,7 @@ def get_mask_account(account_number: int) -> str:
     str_account_number = str(account_number)
     logger.info("Проверяем, введен ли номер счета")
     if str_account_number != "":
-        logger.info(f"Проверяем длину номера счета")
+        logger.info("Проверяем длину номера счета")
         if len(str_account_number) == 20:
             mask_account_number = "**" + str_account_number[-4:]
             logger.info(f"Полученный результат маскировки карты: {mask_account_number}")

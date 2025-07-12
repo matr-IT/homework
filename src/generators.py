@@ -5,7 +5,7 @@ def filter_by_currency(operations: list[dict], currency: str) -> Generator:
     """function filters operations by its currency"""
     if operations:
         for operation in operations:
-            if operation["operationAmount"]["currency"]["name"] == currency:
+            if operation["operationAmount"]["currency"]["code"] == currency:
                 yield operation
             else:
                 yield "Нет операций по данной валюте"
